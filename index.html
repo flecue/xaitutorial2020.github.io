@@ -1,0 +1,233 @@
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Explainable AI</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    /* .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    } */
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: auto}
+
+    /* Set gray background color and 100% height */
+    /* .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    } */
+
+    /* Set black background color, white text and some padding */
+    /* footer {
+      background-color: #555;
+      color: white;
+      padding: 5px;
+    } */
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- <nav class="navbar navbar-inverse"> </nav> -->
+
+<div class="container text-center">
+    <table border="0" align="center">
+      <tr>
+        <td width="700" align="center" valign="middle"><h3>AAAI 2019 Tutorial on</h3>
+         <span class="title"><h4>On Explainable AI:</h4> </span>
+         <span class="title"><h5> From Theory to Motivation, Applications and Limitations</h5> </span>
+         <span class="title"><h5>Sunday, January 27, 2019</h5> </span>
+         <span class="title"><h5>8:30 AM – 12:30 AM</h5> </span>
+          <span class="title"><h5> <a href="https://github.com/xaitutorial2019/xaitutorial2019.github.io/raw/master/slides/aaai_2019_xai_tutorial.pdf">Download Slides</a> </h5></span>
+        </td>
+      </tr>
+    </table>
+    <p><img class="img-rounded" src="assets/images/main.jpg" width="100%" height="200" align="center" /></p>
+
+</div>
+
+
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-md-1 sidenav"></div>
+    <div class="col-md-10 text-left">
+      <h2 align="center">Goal of the Tutorial</h2>
+      <p>The goal of the tutorial is to provide answers to the following questions:</p>
+      <div class="list-group">
+        <a href="#" class="list-group-item">
+          <h5 class="list-group-item-heading">What is explainable AI (XAI)</h5>
+          <p class="list-group-item-text">What is explainable AI (XAI for short) i.e., what are explanations from the various streams of the AI community (Machine Learning, Logics, Constraint Programming, Diagnostics)? What are the metrics for explanations?</p>
+        </a>
+
+        <a href="#" class="list-group-item">
+            <h5 class="list-group-item-heading">Why shall we care?</h5>
+            <p class="list-group-item-text">Why is explainable AI important? even crucial in some applications? What are the motivations in elaborating AI systems which expose explanations?</p>
+        </a>
+
+        <a href="#" class="list-group-item">
+              <h5 class="list-group-item-heading">Where is it critical?</h5>
+              <p class="list-group-item-text">What are the real-world applications that are in real needs of explanations to deploy AI systems at scale?</p>
+        </a>
+
+        <a href="#" class="list-group-item">
+            <h5 class="list-group-item-heading">How does it work?</h5>
+            <p class="list-group-item-text">What are the state-of-the-art techniques for elaborating explanation in computer vision, natural language processing? What does work well, not so well, for which data format, use case, application, industry?</p>
+        </a>
+
+        <a href="#" class="list-group-item">
+            <h5 class="list-group-item-heading">What did we learn?</h5>
+            <p class="list-group-item-text">What are the lessons learned and limitations in deploying existing XAI systems? in communicating explanation to human?</p>
+        </a>
+
+        <a href="#" class="list-group-item">
+            <h5 class="list-group-item-heading">What is next?</h5>
+            <p class="list-group-item-text">What are some of the promising future directions in XAI?</p>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-1 sidenav" ></div>
+  </div>
+
+  <div class="row content">
+      <div class="col-md-1 sidenav"></div>
+      <div class="col-md-10 text-left">
+          <h2 align="center">Overview</h2>
+          <p>The future of AI lies in enabling people to collaborate with machines to solve complex problems. Like any efficient collaboration, this requires good communication, trust, clarity and understanding. XAI (eXplainable AI) aims at addressing such challenges by combining the best of symbolic AI and traditional Machine Learning. Such topic has been studied for years by all different communities of AI, with different definitions, evaluation metrics, motivations and results. This tutorial is a snapshot on the work of XAI to date, and surveys the work achieved by the AI community with a focus on machine learning and symbolic AI related approaches.</p>
+
+          <p>In the first part of the tutorial, we give an introduction to the different aspects of explanations in AI. We then focus the tutorial on two specific approaches: (i) XAI using machine learning and (ii) XAI using a combination of graph-based knowledge representation and machine learning. For both we get into the specifics of the approach, the state of the art and the research challenges for the next steps. The final part of the tutorial gives an overview of real-world applications of XAI.</p>
+       </div>
+      <div class="col-md-1 sidenav"></div>
+  </div>
+
+  <div class="row content">
+    <div class="col-md-1 sidenav"></div>
+    <div class="col-md-10 text-left">
+        <h2 align="center">Outline</h2>
+        <h4>Introduction</h4>
+        <p>Broad-spectrum introduction on explanation in AI. This will include describing and motivating the need for explainable AI techniques, from both theoretical and applicative standpoints. In this part we also summarize the prerequisites, and we introduce the different angles taken by the rest of the tutorial.</p>
+
+        <h4>Explanation in AI</h4>
+        <p>General overview of explanation in various field of AI (optimization, knowledge representation and reasoning, machine learning, search and constraint optimization, planning, natural language processing, robotics and vision) to align everyone on the various definitions of explanation. The tutorial will cover most of definitions but will only go deep in the following areas: (i) Explainable Machine Learning, (ii) Explainable AI with Knowledge Graphs and ML.</p>
+
+        <h4>Explainable Machine Learning.</h4>
+        <p>In this section we tackle the broad problem of interpretable machine learning pipelines. We describe the notion of interpretability in the machine learning community, and we proceed by describing a number of popular interpretable models. The core of this section is the analysis of different categories of black box problems, ranging from the black box model explanation, to black box outcome explanation, and finally black box inspection.</p>
+
+        <h4>Explainable AI with Knowledge Graphs and ML</h4>
+        <p> In this section of the tutorial we address the explanatory power of graph-based knowledge bases from two separate points of views: </p>
+        <div class="list-group">
+          <ul>
+            <li>
+                <h5 class="list-group-item-heading">Explainable AI with semantic web and logics</h5>
+                <p class="list-group-item-text">We show how the schema-rich, graph-based knowledge representation paradigm underpinning the semantic web enables effective explanations. This section also focuses on logics and reasoning methods for representing and inferring effective explanations from large, heterogeneous knowledge bases.
+                </p>
+            </li>
+            <p></p>
+            <li>
+                <h5 class="list-group-item-heading">Machine learning on knowledge graphs</h5>
+                <p class="list-group-item-text">In this section, we focus on knowledge graph embedding models, neural architectures that encode concepts from a knowledge graph into continuous, low-dimensional vectors. Such models have proven to be effective for a number of machine learning tasks, notably knowledge base completion. We explain the rationale and the architectures of this models and we survey them from the point of view of how nterpretable they are, and how they can enhance the explainability of third-party models.
+                </p>
+            </li>
+          </ul>
+          </div>
+
+        <h4>Applications</h4>
+        <p>We show real-world examples of applied explanation techniques. We focus on a number of use cases: i) an interpretable flight delay prediction system, with built-in explanation capabilities; ii) a wide-scale contract management system that predicts and explains the risk tier of corporate projects with semantic reasoning over knowledge graphs; iii) an expenses system that identifies, explains, and predict abnormal expense claims by employees of large organizations in 500+ cities.</p>
+    </div>
+    <div class="col-md-1 sidenav"></div>
+  </div>
+
+  <!-- <div class="row">
+
+      <div class="col-md-1 sidenav"></div>
+      <div class="col-md-2">
+          <a href="assets/images/luca.jpg" target="_blank">
+            <img class="img-responsive img-circle" src="assets/images/luca.jpg" alt="Luca" >
+            <div class="caption">
+              <p>Luca Costabello</p>
+            </div>
+          </a>
+      </div>
+      <div class="col-md-1 sidenav"></div>
+  </div> -->
+
+  <div class="row content">
+    <div class="col-md-1 sidenav">
+      <!--  -->
+    </div>
+    <div class="col-md-10 text-left">
+        <h2 align="center">Presenters</h2>
+      <h4>Luca Costabello</h4>
+      <p> <a href="https://luca.costabello.info">Luca Costabello</a> is research scientist in Accenture Labs Dublin. His research interests span knowledge graphs management, machine learning for relational data, and knowledge graphs applications. Luca recently worked as research scientist in Fujitsu Ireland, where he focused on knowledge discovery from graph-based knowledge bases in various industry scenarios. He obtained a PhD in computer science from the University of Nice Sophia Antipolis (France), during a stint at the French Institute for Research in Computer Science (Inria), where he focused on context-aware consumption of Linked Data. Luca worked as research engineer at Telecom Italia in Turin (Italy), mostly on data mining for location-based services. He received an MSc and a BSc in computer engineering from the Polytechnic University in Turin. Luca is the author of publications in academic conferences, such as ISWC, ECAI, WWW, Hypertext, and ESWC, and serves as program committee member for conferences (WWW, ISWC, ESWC, EKAW) and journals (Semantic Web Journal - SWJ).
+      </p>
+
+      <h4>Fosca Giannotti</h4>
+      <p><a href="https://kdd.isti.cnr.it/people/giannotti-fosca">Fosca Giannotti</a> is Director of Research at the Information Science and Technology Institute “A. Faedo” of the National Research Council, Pisa, Italy. Fosca Giannotti is a scientist in Data mining and Machine Learning and Big Data Analytics. Fosca leads the Pisa KDD Lab - Knowledge Discovery and Data Mining Laboratory http://kdd.isti.cnr.it, a joint research initiative of the University of Pisa and ISTI-CNR, founded in 1994 as one of the earliest research lab centered on data mining. Fosca's research focus is on social mining from big data:  human dynamics, social  networks,  diffusion of innovation,  privacy enhancing technology and explainable AI. She has coordinated tens of research projects and industrial collaborations. Fosca is now the coordinator of SoBigData, the European research infrastructure on Big Data Analytics and Social Mining, an ecosystem of ten cutting edge European research centres providing an open platform for interdisciplinary data science and data-driven innovation http://www.sobigdata.eu. In 2012-2015 Fosca has been general chair of the Steering board of ECML-PKDD (European conference on Machine Learning) and is currently member of the steering committee EuADS (European Association on Data Science) and of the  AIIS: Italian Lab. of Artificial Intelligence and Autonomous Systems.</p>
+
+      <h4>Riccardo Guidotti</h4>
+      <p><a href="https://kdd.isti.cnr.it/people/riccardo-guidotti">Riccardo Guidotti</a> is currently a post-doc researcher at the Department of Computer Science University of Pisa, Italy and a member of the Knowledge Discovery and Data Mining Laboratory (KDDLab), a joint research group with the Information Science and Technology Institute of the National Research Council in Pisa. Riccardo Guidotti was born in 1988 in Pitigliano (GR) Italy. In 2013 and 2010 he graduated cum laude in Computer Science (MS and BS) at University of Pisa. He received the PhD in Computer Science with a thesis on Personal Data Analytics in the same institution. He won the IBM fellowship program and has been an intern in IBM Research Dublin, Ireland in 2015. His research interests are in personal data mining, clustering, explainable models, analysis of transactional data related to recipes and to migration flows.</p>
+
+      <h4>Pascal Hitzler</h4>
+      <p><a href="http://www.pascal-hitzler.de">Pascal Hitzler</a> is endowed NCR Distinguished Professor, Brage Golding Distinguished Professor of Research, and Director of Data Science at the Department of Computer Science and Engineering at Wright State University in Dayton, Ohio, U.S.A. His research record lists over 400 publications in such diverse areas as semantic web, artificial intelligence, neural-symbolic integration, knowledge representation and reasoning, machine learning, denotational semantics, and set-theoretic topology. His research is highly cited. He is founding Editor-in-chief of the Semantic Web journal, the leading journal in the field, and of the IOS Press book series Studies on the Semantic Web. He is co-author of the W3C Recommendation OWL 2 Primer, and of the book Foundations of Semantic Web Technologies by CRC Press, 2010, which was named as one out of seven Outstanding Academic Titles 2010 in Information and Computer Science by the American Library Association's Choice Magazine, and has translations into German and Chinese. He is on the editorial board of several journals and book series and a founding steering committee member of the Neural-Symbolic Learning and Reasoning Association and the Association for Ontology Design and Patterns, and he frequently acts as conference chair in various functions, including e.g. General Chair (ESWC2019, US2TS2018), Program Chair (FOIS 2018, AIMSA2014), Track Chair (ISWC2018, ESWC2018, ISWC2017, ISWC2016, AAAI-15), Workshop Chair (K-Cap2013), Sponsor Chair (ISWC2013, RR2009, ESWC2009), PhD Symposium Chair (ESWC 2017). He gave \textbf{\emph{tutorials}} at ESWC 2017, ISWC 2016, IJCAI-16, AAAI-15, ISWC 2013, STIDS 2013, OWLED 2011, ESWC 2009, IJCAI 2009, Informatik 2009, KI 2009, GeoS 2009, ISWC 2006, ESWC 2006, ICANN 2006 and KI 2005. For more information about him, see <a href="http://www.pascal-hitzler.de"> http://www.pascal-hitzler.de</a> </p>
+
+      <h4>Freddy Lecue</h4>
+      <p><a href="http://www-sop.inria.fr/members/Freddy.Lecue/">Freddy Lecue</a> (PhD 2008, Habilitation 2015) is a principal scientist and research manager in Artificial Intelligent systems, systems combining learning and reasoning capabilities, in Accenture Technology Labs, Dublin - Ireland. He is also a research associate at INRIA, in WIMMICS, Sophia Antipolis - France. Before joining Accenture Labs, he was a Research Scientist at IBM Research, Smarter Cities Technology Center (SCTC) in Dublin, Ireland, and lead investigator of the Knowledge Representation and Reasoning group. His main research interests are Explainable AI systems. The application domain of his current research is Smarter Cities, with a focus on Smart Transportation and Building. In particular, he is interested in exploiting and advancing Knowledge Representation and Reasoning methods for representing and inferring actionable insight from large, noisy, heterogeneous and big data. He has over 40 publications in refereed journals and conferences related to Artificial Intelligence (AAAI, ECAI, IJCAI, IUI) and Semantic Web (ESWC, ISWC), all describing new system to handle expressive semantic representation and reasoning. He co-organized the first three workshops on semantic cities (AAAI 2012, 2014, 2015, IJCAI 2013), and the first two tutorial on smart cities at AAAI 2015 and IJCAI 2016. Prior to joining IBM, Freddy Lecue was a Research Fellow (2008-2011) with the Centre for Service Research at The University of Manchester, UK. He has been awarded by a second prize for his Ph.D thesis by the French Association for the Advancement of Artificial Intelligence in 2009, and has been recipient of the Best Research Paper Award at the ACM/IEEE Web Intelligence conference in 2008.</p>
+
+      <h4>Pasquale Minervini</h4>
+      <p><a href="http://www.neuralnoise.com">Pasquale Minervini</a> is a Research Associate at University College London (UCL), United Kingdom, working with the Machine Reading group led by Prof. Sebastian Riedel. He received a Ph.D. in Computer Science from University of Bari, Italy, with a thesis titled "Mining Methods for the Web of Data", advised by Prof. Nicola Fanizzi. After obtaining his Ph.D., Pasquale worked as a postdoctoral researcher at University of Bari, Italy, and at the INSIGHT Centre for Data Analytics (INSIGHT), Galway, Ireland. At INSIGHT, he worked in the Knowledge Engineering and DIscovery (KEDI) group, composed by researchers and engineers from INSIGHT and Fujitsu Ireland Research and Innovation. Over the course of his research career, Pasquale published 29 peer-reviewed papers, including in top-tier AI conferences (such as UAI, AAAI, ICDM, CoNLL, ECML, and ESWC), receiving two best paper awards. He is the main inventor of a patent application assigned to Fujitsu Ltd.
+
+      For more information about him, see <a href="http://www.neuralnoise.com">http://www.neuralnoise.com</a> </p>
+
+      <h4>Md. Kamruzzaman Sarker</h4>
+      <p><a href="https://dase.cs.wright.edu/people/kamruzzaman-sarker">Md Kamruzzaman Sarker</a>  is a PhD student at Wright State University. His current research focuses on making machine learning algorithms decision more transparent. Besides this he is also interested in making ontology engineering processes easier and more human friendly. For the latter he created both the OWLAx and the ROWL plugin for Protege. He also achieved Graduate Certificate in Big and Smart data. Before starting his PhD he worked in industry, at Samsung Electronics, as a software engineer.
+      </p>
+
+    </div>
+    <div class="col-md-1 sidenav">
+      <!--  -->
+    </div>
+  </div>
+
+  <div class="row content">
+    <h2 align="center">Schedule</h2>
+    <span class="title"><h5>Sunday, January 27, 2019</h5> </span>
+    <span class="title"><h5>8:30 AM – 12:30 AM</h5> </span>
+    <span class="title"><h5><a href="https://aaai.org/Conferences/AAAI-19/aaai19tutorials/">https://aaai.org/Conferences/AAAI-19/aaai19tutorials/</a></h5></span>
+    </div>
+</div>
+
+<!-- <div class="container text-center">
+
+</div> -->
+
+<footer class="container-fluid text-left">
+    <div class="col-md-1 sidenav">
+        <!--  -->
+      </div>
+      <div class="col-md-10">
+
+    <p>Please contact <a href="luca.costabello@accenture.com">Luca Costabello</a> if you have question.</p>
+        </div>
+    <div class="col-md-1 sidenav">
+        <!--  -->
+      </div>
+</footer>
+
+</body>
+</html>
